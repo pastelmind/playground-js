@@ -1,0 +1,24 @@
+{
+  "name": "three-js-study",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@types/three": "^0.150.2",
+    "lil-gui": "^0.18.1",
+    "three": "^0.151.3"
+  },
+  "devDependencies": {
+    "@types/node": "^16.18.24",
+    "glob": "^10.2.1",
+    "prettier": "^2.8.7",
+    "prettier-plugin-packagejson": "^2.4.3",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.0"
+  }
+}
