@@ -1,0 +1,20 @@
+<div>
+  <ol>
+    {{#items}}
+      <li>
+        {{text}}
+        <form class="inline" method="post">
+          <input type="submit" value="Delete Item" />
+          <input type="hidden" name="delete" value="{{@index}}" />
+        </form>
+      </li>
+    {{/items}}
+  </ol>
+</div>
+<div>
+  <form method="post">
+    <label for="todo-text">New Todo:</label>
+    <input type="text" id="todo-text" name="todo_text" autocomplete="off" />
+    <input type="submit" value="Add Todo Item" />
+  </form>
+</div>
