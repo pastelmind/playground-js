@@ -6,7 +6,7 @@
   "scripts": {
     "fix": "eslint --fix . && prettier --write .",
     "lint": "eslint . && prettier --check .",
-    "start": "DEBUG=app:* tsx index.ts"
+    "start": "DEBUG=app:* tsx watch index.ts"
   },
   "dependencies": {
     "cookie-parser": "^1.4.6",
