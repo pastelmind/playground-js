@@ -1,51 +1,85 @@
-<main class="todo-main">
-  <header class="todo-header">
-    <h1 class="todo-header__title">todos</h1>
-  </header>
-  <section>
-    <form method="post">
-      <label for="todo-text">New Todo:</label>
-      <input type="text" id="todo-text" name="todo_text" autocomplete="off" />
-      <input type="submit" value="Add Todo Item" />
-    </form>
-  </section>
-  <section>
-    <ol>
-      {{#items}}
-        <li>
-          {{text}}
-          <form class="inline" method="post">
-            <input type="submit" value="Delete Item" />
-            <input type="hidden" name="delete" value="{{@index}}" />
-          </form>
-          {{#if isCompleted}}
-            <form class="inline" method="post">
-              <input type="submit" value="Mark as undone" />
-              <input type="hidden" name="incomplete" value="{{@index}}" />
-            </form>
-          {{else}}
-            <form class="inline" method="post">
-              <input type="submit" value="Mark as done" />
-              <input type="hidden" name="complete" value="{{@index}}" />
-            </form>
-          {{/if}}
-        </li>
-      {{/items}}
-    </ol>
-  </section>
-  <section>
-    <form class="inline" method="post">
-      {{#filterTypes}}
+<div class="page-wrapper">
+  <main class="page-main todo-main">
+    <header class="todo-header">
+      <h1 class="todo-header__title">todos</h1>
+    </header>
+    <section>
+      <form class="todo-text-bar" method="post">
         <input
-          type="radio"
-          name="filter-type"
-          value="{{type}}"
-          id="filter-type-radio-{{type}}"
-          {{checked}}
+          class="todo-text-input"
+          type="text"
+          name="todo_text"
+          placeholder="What needs to be done?"
+          autocomplete="off"
         />
-        <label for="filter-type-radio-{{type}}">{{text}} ({{count}})</label>
-      {{/filterTypes}}
-      <input type="submit" value="Set Filter" />
-    </form>
-  </section>
-</main>
+        <input
+          class="todo-text-submit-button"
+          type="submit"
+          value="➕"
+          title="Add new todo item"
+        />
+      </form>
+    </section>
+    <section>
+      <ol class="todo-list">
+        {{#items}}
+          <li class="todo-list-item">
+            {{#if isCompleted}}
+              <form method="post">
+                <input
+                  class="todo-toggle-button todo-toggle-button--checked"
+                  type="submit"
+                  value=""
+                  title="Mark as undone"
+                />
+                <input type="hidden" name="incomplete" value="{{@index}}" />
+              </form>
+              <span class="todo-list-item__text todo-list-item__text--complete">
+                {{text}}
+              </span>
+            {{else}}
+              <form class="inline" method="post">
+                <input
+                  class="todo-toggle-button"
+                  type="submit"
+                  value=""
+                  title="Mark as done"
+                />
+                <input type="hidden" name="complete" value="{{@index}}" />
+              </form>
+              <span class="todo-list-item__text">{{text}}</span>
+            {{/if}}
+            <form class="inline" method="post">
+              <input
+                class="todo-delete-button"
+                type="submit"
+                value="×"
+                title="Delete item"
+              />
+              <input type="hidden" name="delete" value="{{@index}}" />
+            </form>
+          </li>
+        {{/items}}
+      </ol>
+    </section>
+    <section>
+      <form class="inline" method="post">
+        {{#filterTypes}}
+          <input
+            type="radio"
+            name="filter-type"
+            value="{{type}}"
+            id="filter-type-radio-{{type}}"
+            {{checked}}
+          />
+          <label for="filter-type-radio-{{type}}">{{text}} ({{count}})</label>
+        {{/filterTypes}}
+        <input type="submit" value="Set Filter" />
+      </form>
+    </section>
+  </main>
+  <footer class="page-superfooter">
+    The design of this Todo App is based on
+    <a href="https://todomvc.com/">TodoMVC</a>
+  </footer>
+</div>

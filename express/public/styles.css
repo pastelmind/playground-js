@@ -1,3 +1,7 @@
+:root {
+  font-size: 16px;
+}
+
 body {
   background-color: hsl(0 0% 96.1%);
 }
@@ -6,10 +10,51 @@ body {
   display: inline;
 }
 
+/**** Page layout ****/
+
+.page-main {
+  /* Scroll space for footer */
+  margin-bottom: 40px;
+}
+
+.page-main form {
+  margin: 0; /* Reset <form> style */
+}
+
+.page-superfooter {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 8px 16px;
+
+  background-color: hsl(0 0% 0%);
+  color: hsl(0 0% 60%);
+  font-size: 0.75rem;
+}
+
+.page-superfooter a {
+  color: hsl(160 50% 75%);
+}
+
+.page-superfooter a:visited {
+  color: hsl(160 25% 50%);
+}
+
+/**** Todo App ****/
+
 .todo-main {
   width: 100%;
   max-width: 480px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem; /* 24px */
+  font-weight: 300;
+  line-height: 1.4;
+
+  color: hsl(0 0% 30%);
 }
 
 .todo-header {
@@ -18,8 +63,138 @@ body {
 
 .todo-header__title {
   margin: 0; /* Reset <h1> margin */
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 100px;
   font-weight: 100;
   color: hsl(0 57.7% 43.5% / 0.15);
+}
+
+.todo-text-bar {
+  display: flex;
+  gap: 4px;
+}
+
+.todo-text-input {
+  flex-grow: 1;
+  padding: 16px;
+  border: none;
+  box-shadow: inset 0 -2px 1px hsl(0 0% 0% / 0.03);
+
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.todo-text-input::placeholder {
+  flex-shrink: 0;
+
+  font-style: italic;
+  color: hsl(0 0% 90%);
+}
+
+.todo-text-submit-button {
+  padding: 16px;
+  border: 1px solid hsl(0 0% 0% / 0.2);
+  border-bottom-color: hsl(0 0% 0% / 0.4);
+  border-radius: 6px;
+
+  background-color: hsl(0 0% 96%);
+  color: hsl(0 0% 21%);
+  font-family: inherit;
+  font-size: 1.875rem; /* 30px */
+  font-weight: inherit;
+  line-height: 1;
+}
+
+.todo-text-submit-button:hover {
+  background-color: hsl(0 0% 90%);
+}
+
+.todo-text-submit-button:active {
+  background-color: hsl(0 0% 80%);
+}
+
+.todo-list {
+  margin: 0; /* Reset <ol> style */
+  padding: 0; /* Reset <ol> style */
+
+  background-color: hsl(0 0% 100%);
+}
+
+.todo-list-item {
+  display: flex; /* Override display: list-item */
+  align-items: center;
+
+  padding-left: 3px;
+  padding-right: 15px;
+}
+
+.todo-list-item:nth-child(n-1) {
+  border-bottom: 1px solid hsl(0 0% 93%);
+}
+
+.todo-list-item {
+  flex-shrink: 0;
+}
+
+.todo-list-item__text {
+  flex-grow: 1;
+  padding: 15px;
+}
+
+.todo-list-item__text--complete {
+  color: hsl(0 0% 85%);
+  text-decoration: line-through;
+}
+
+.todo-toggle-button {
+  border: none; /* Reset <input> style */
+  padding: 0; /* Reset <input> style */
+  width: 40px;
+  height: 40px;
+
+  background-color: transparent; /* Reset <input> style */
+  /* Empty circle */
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  /* Note: SVG is off-centered by (3px, 0px) */
+  background-position: calc(50% - 3px) 50%;
+}
+
+.todo-toggle-button:active {
+  /* Become slightly darker while being pressed */
+  background-color: hsl(0 0% 0% / 0.05);
+  border-radius: 50%;
+}
+
+.todo-toggle-button--checked {
+  /* Circle with check */
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E");
+}
+
+.todo-delete-button {
+  border: none; /* Reset <input> style */
+  background-color: transparent; /* Reset <input> style */
+  padding: 0; /* Reset <input> style */
+  width: 40px;
+  height: 40px;
+
+  padding-bottom: 6px; /* Make 'x' look more vertically centered */
+
+  color: hsl(0 33% 70%);
+  font-family: inherit;
+  font-size: 30px;
+  font-weight: inherit;
+  line-height: 0;
+}
+
+.todo-delete-button:hover {
+  color: hsl(358 34% 52%);
+}
+
+.todo-delete-button:active {
+  /* Become slightly darker while being pressed */
+  background-color: hsl(0 0% 0% / 0.05);
+  border-radius: 50%;
 }
