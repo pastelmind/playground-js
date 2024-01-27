@@ -17,6 +17,54 @@
         autofocus
       />
       <ul class="todo-list"></ul>
+      <div class="todo-toolbar todo-toolbar--hidden">
+        <div class="todo-toolbar__counter">Counter not set</div>
+        <div class="todo-toolbar__filter">
+          <input
+            type="radio"
+            class="todo-toolbar__filter-radio"
+            id="todo-filter-radio-all"
+            name="todo-filter"
+            value="all"
+            checked
+          />
+          <label
+            class="todo-toolbar__filter-radio-label"
+            for="todo-filter-radio-all"
+            >All</label
+          >
+          <input
+            type="radio"
+            class="todo-toolbar__filter-radio"
+            id="todo-filter-radio-active"
+            name="todo-filter"
+            value="active"
+          />
+          <label
+            class="todo-toolbar__filter-radio-label"
+            for="todo-filter-radio-active"
+            >Active</label
+          >
+          <input
+            type="radio"
+            class="todo-toolbar__filter-radio"
+            id="todo-filter-radio-completed"
+            name="todo-filter"
+            value="completed"
+          />
+          <label
+            class="todo-toolbar__filter-radio-label"
+            for="todo-filter-radio-completed"
+            >Completed</label
+          >
+        </div>
+        <!-- todo-toolbar__filter의 가운데 정렬을 위해 wrapper div가 필요 -->
+        <div class="todo-toolbar__clear-button-wrapper">
+          <button type="button" class="todo-toolbar__clear-button" disabled>
+            Clear completed
+          </button>
+        </div>
+      </div>
     </div>
     <footer class="footer">
       Double-click to edit a todo<br />

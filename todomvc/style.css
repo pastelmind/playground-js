@@ -62,7 +62,8 @@ body {
   display: flex;
   gap: 8px;
 
-  border-top: 1px solid black;
+  /* 각 항목의 아래쪽 경계선을 나타내는 그림자 */
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
   padding: 16px;
 
   color: #111;
@@ -71,11 +72,79 @@ body {
   font-weight: 200;
 }
 
+.todo-list__item--hidden {
+  display: none;
+}
+
 .todo-list__item-check-button {
   width: 24px;
 
   border: none;
   background-color: transparent;
+}
+
+.todo-list__item-text {
+}
+
+.todo-list__item-delete-button {
+  /* Sit at right end of row */
+  margin-left: auto;
+  border: none;
+}
+
+.todo-toolbar {
+  display: flex;
+  justify-content: space-between;
+
+  /* 2번째 자식 요소를 가운데 정렬한다 */
+  & > :nth-child(1),
+  & > :nth-child(3) {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+
+  padding: 8px;
+}
+
+.todo-toolbar--hidden {
+  display: none;
+}
+
+.todo-toolbar__counter {
+}
+
+.todo-toolbar__filter {
+  /* display: flex;
+  gap: 16px; */
+}
+
+.todo-toolbar__filter-radio {
+  display: none;
+}
+
+.todo-toolbar__filter-radio-label {
+  padding: 2px 8px;
+  border-radius: 3px;
+
+  &:hover {
+    outline: 1px solid #ffcccc;
+  }
+}
+
+.todo-toolbar__filter-radio:checked + .todo-toolbar__filter-radio-label {
+  outline: 1px solid red;
+}
+
+.todo-toolbar__clear-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.todo-toolbar__clear-button {
+}
+
+.todo-toolbar__clear-button--hidden {
+  display: none;
 }
 
 .footer {
