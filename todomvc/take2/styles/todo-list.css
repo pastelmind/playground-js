@@ -1,0 +1,43 @@
+.todo-list {
+  /* Rest native list style */
+  list-style-type: none;
+  margin: unset;
+  padding: unset;
+
+  font-size: 24px;
+}
+
+.todo-list-item {
+  padding: 8px;
+
+  display: flex;
+  gap: 8px;
+}
+
+.todo-list-item--hidden {
+  display: none;
+}
+
+.todo-list-item__text {
+  flex-grow: 1;
+}
+
+.todo-list-item__delete-button {
+  /* Reset native button style */
+  border: unset;
+  padding: unset;
+  background-color: unset;
+
+  padding: 0 4px;
+  border-radius: 2px;
+
+  &::after {
+    content: "❌";
+  }
+  &:not(:hover)::after {
+    opacity: 0.2;
+  }
+  &:active {
+    background-color: hsl(0 0% 0% / 10%);
+  }
+}

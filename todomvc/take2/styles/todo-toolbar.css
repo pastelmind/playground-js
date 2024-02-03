@@ -1,0 +1,69 @@
+.todo-toolbar {
+  display: flex;
+  padding: 8px;
+  position: relative;
+  justify-content: center;
+
+  /* Center middle child, push first and last children to edges */
+  & > :first-child {
+    position: absolute;
+    left: 0;
+  }
+
+  & > :last-child {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.todo-toolbar--hidden {
+  display: none;
+}
+
+.todo-filter {
+  display: flex;
+  gap: 8px;
+}
+
+.todo-filter__radio-label {
+  padding: 0 4px;
+
+  border-radius: 3px;
+  outline-width: 1px;
+  outline-color: #ce4646;
+
+  &:hover,
+  &:has(> .todo-filter__radio:checked) {
+    outline-style: solid;
+  }
+
+  &:focus-within {
+    box-shadow: 0 0 2px 2px #cf7d7d;
+  }
+}
+
+.todo-filter__radio {
+  /* Unstyled and visually hidden */
+  appearance: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.todo-clear-completed-button {
+  /* Reset native button style */
+  border: unset;
+  padding: unset;
+  background-color: unset;
+  font-family: unset;
+  font-size: unset;
+
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.todo-clear-completed-button--hidden {
+  visibility: hidden;
+}

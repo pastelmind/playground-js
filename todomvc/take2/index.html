@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TodoMVC Vanilla JS Take 2</title>
+    <link rel="stylesheet" href="./styles/todo-page.css" />
+    <link rel="stylesheet" href="./styles/todo-entry.css" />
+    <link rel="stylesheet" href="./styles/todo-list.css" />
+    <link rel="stylesheet" href="./styles/todo-toolbar.css" />
+    <link rel="stylesheet" href="./styles/util.css" />
+    <script type="module" src="./scripts/main.js"></script>
+  </head>
+  <body>
+    <header class="todo-header">
+      <h1 class="todo-app-title">Todos</h1>
+    </header>
+    <main class="todo-app">
+      <section class="todo-entry">
+        <input type="checkbox" class="todo-complete-all-toggle" />
+        <input
+          type="text"
+          class="todo-entry__fill-child todo-new-item-input"
+          placeholder="What needs to be done?"
+        />
+      </section>
+      <ul class="todo-list"></ul>
+      <section class="todo-toolbar">
+        <div class="todo-counter"></div>
+        <div class="todo-filter">
+          <label class="todo-filter__radio-label">
+            <input
+              type="radio"
+              class="todo-filter__radio"
+              name="todo-filter"
+              value="all"
+              checked
+            />
+            All
+          </label>
+          <label class="todo-filter__radio-label">
+            <input
+              type="radio"
+              class="todo-filter__radio"
+              name="todo-filter"
+              value="active"
+            />
+            Active
+          </label>
+          <label class="todo-filter__radio-label">
+            <input
+              type="radio"
+              class="todo-filter__radio"
+              name="todo-filter"
+              value="complete"
+            />
+            Complete
+          </label>
+        </div>
+        <button type="button" class="todo-clear-completed-button">
+          Clear completed
+        </button>
+      </section>
+    </main>
+    <footer class="todo-footer">
+      Double-click to edit a todo<br />
+      Created by the Yehyoung team<br />
+      Based on <a href="https://todomvc.com/">TodoMVC</a>
+    </footer>
+  </body>
+</html>

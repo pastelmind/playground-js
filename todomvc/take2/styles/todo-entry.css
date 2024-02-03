@@ -1,0 +1,61 @@
+.todo-entry {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.todo-entry__fill-child {
+  flex-grow: 1;
+}
+
+.todo-new-item-input {
+  padding: 16px;
+
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 300;
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    font-style: italic;
+    font-weight: 400;
+  }
+}
+
+.todo-complete-all-toggle {
+  /* Override native checkbox look and feel */
+  appearance: none;
+
+  font-size: 24px;
+
+  display: inline-block;
+  width: 1lh;
+  height: 1lh;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 1.5;
+
+  /* Prevent being selected when toggled */
+  /* user-select: none; */
+
+  &::before {
+    content: "▼";
+    position: relative;
+    top: 5%;
+    color: gray;
+  }
+
+  &:hover {
+    outline: 1px dotted gray;
+  }
+
+  &:checked {
+    &::before {
+      color: black;
+    }
+
+    &:hover {
+      outline-color: black;
+    }
+  }
+}
