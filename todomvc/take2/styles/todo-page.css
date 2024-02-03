@@ -1,0 +1,15 @@
+body {
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.todo-app-title {
+  color: #b83f45;
+  font-size: 80px;
+  font-weight: 200;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.todo-footer {
+  text-align: center;
+}
