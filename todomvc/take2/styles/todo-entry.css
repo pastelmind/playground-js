@@ -9,6 +9,7 @@
 }
 
 .todo-new-item-input {
+  border: none;
   padding: 16px;
 
   font-family: inherit;

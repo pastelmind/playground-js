@@ -38,20 +38,19 @@ const setup = () => {
   ui.setupNewItemInput(root, {
     onAddItem: (text) => {
       const isComplete = false;
-      const itemId = store.addItem(text, isComplete);
+      const item = store.addItem(text, isComplete);
 
       const listItemUi = todoListUi.prependListItem({
-        text,
-        isComplete,
+        item,
         onCompletedChange: (isCompleted) => {
-          store.setItemCompleted(itemId, isCompleted);
+          store.setItemCompleted(item.id, isCompleted);
           listItemUi.update(isCompleted);
           counterUi.update();
           completeAllToggleUi.update();
           clearButtonUi.update();
         },
         onDelete: () => {
-          store.deleteItem(itemId);
+          store.deleteItem(item.id);
           listItemUi.remove();
           counterUi.update();
           completeAllToggleUi.update();

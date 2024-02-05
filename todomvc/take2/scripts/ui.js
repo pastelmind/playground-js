@@ -35,8 +35,7 @@ export const setupTodoList = (root) => {
 
   /**
    * @param {object} options
-   * @param {string} options.text
-   * @param {boolean} options.isComplete
+   * @param {import("./store.js").TodoItem} options.item
    * @param {(value: boolean) => void} options.onCompletedChange
    * @param {() => void} options.onDelete
    */
@@ -101,21 +100,35 @@ export const setupTodoList = (root) => {
 /**
  * @param {Element} listItem
  * @param {object} options
- * @param {string} options.text
- * @param {boolean} options.isComplete
+ * @param {import("./store.js").TodoItem} options.item
  * @param {(value: boolean) => void} options.onCompletedChange
  * @param {() => void} options.onDelete
  */
 const setupTodoListItem = (listItem, options) => {
   const listItemText = listItem.querySelector(".todo-list-item__text");
   assert(listItemText);
-  listItemText.textContent = options.text;
+  listItemText.textContent = options.item.text;
+
+  const listItemEditInput = document.createElement("input");
+  listItemEditInput.type = "text";
+
+  listItemText.addEventListener("dblclick", () => {
+    listItemEditInput.value = options.item.text;
+    listItem.replaceChild(listItemEditInput, listItemText);
+  });
+
+  listItemEditInput.addEventListener("blur", () => {
+    options.item.text = listItemEditInput.value;
+
+    listItemText.textContent = options.item.text;
+    listItem.replaceChild(listItemText, listItemEditInput);
+  });
 
   const completedCheckbox = listItem.querySelector(
     ".todo-list-item__completed-checkbox"
   );
   assert(completedCheckbox instanceof HTMLInputElement);
-  completedCheckbox.checked = options.isComplete;
+  completedCheckbox.checked = options.item.isComplete;
   completedCheckbox.addEventListener("change", () =>
     options.onCompletedChange(completedCheckbox.checked)
   );
@@ -154,7 +167,7 @@ const setupTodoListItem = (listItem, options) => {
     completedCheckbox.checked = isComplete;
   };
 
-  update(options.isComplete);
+  update(options.item.isComplete);
 
   return { update, remove };
 };
