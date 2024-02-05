@@ -51,12 +51,13 @@ function getNextItemId() {
 /**
  * @param {string} text
  * @param {boolean} isComplete
- * @returns {number}
+ * @returns {TodoItem}
  */
 export function addItem(text, isComplete) {
   const itemId = getNextItemId();
-  todoItems.unshift({ id: itemId, text, isComplete });
-  return itemId;
+  const item = { id: itemId, text, isComplete };
+  todoItems.unshift(item);
+  return item;
 }
 
 /**
