@@ -16,6 +16,7 @@ export const todoInput = html`
             id: getNextId(),
             text: string,
             isCompleted: false,
+            isEditing: false,
           };
           store.items.unshift(newItem);
           e.target.value = "";
