@@ -27,11 +27,22 @@ function todoListItem(item) {
         class="${() =>
           `todo-list__item-text ${
             item.isCompleted ? "todo-list__item-checked" : ""
-          }`}"
+          } ${item.isEditing ? "todo-list--switch" : ""}`}"
+        @dblclick="${() => {
+          item.isEditing = true;
+        }}"
       >
-        ${item.text}
+        ${() => item.text}
       </div>
-      <input class="todo-list__item-input todo-list--switch" type="text" />
+      <input
+        class="${() =>
+          `todo-list__item-input ${item.isEditing ? "" : "todo-list--switch"}`}"
+        type="text"
+        @blur="${(event) => {
+          item.text = event.target.value;
+          item.isEditing = false;
+        }}"
+      />
     </div>
     <button
       class="todo-list__delete-button"
