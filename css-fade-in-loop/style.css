@@ -46,6 +46,7 @@ img {
 
   35% {
     opacity: 0;
+    z-index: 1;
   }
 }
 
