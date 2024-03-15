@@ -1,0 +1,13 @@
+{
+  "name": "Yehyoung",
+  "age": 30,
+  "isMale": true,
+  "readBooks": ["JavaScript Definitive Guide", "Why Fish Do Not Exist"],
+  "places": {
+    "hometown": "Seoul",
+    "home": "Pankyo",
+    "something": {
+      "a": "b"
+    }
+  }
+}
