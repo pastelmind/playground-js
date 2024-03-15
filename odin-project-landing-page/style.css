@@ -1,0 +1,94 @@
+/* CSS reset */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/**** Intro ****/
+
+.intro {
+  background-color: #1f2937;
+  padding: 16px;
+}
+
+.intro-header,
+.intro-content {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.intro-logo {
+  font-size: 24px;
+  color: #f9faf8;
+  font-weight: 800;
+}
+
+.intro-links {
+  /* Reset list style */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  gap: 24px;
+
+  font-size: 18px;
+  color: #e5e7eb;
+}
+
+.intro-content {
+  margin-top: 120px;
+  margin-bottom: 120px;
+  display: flex;
+  gap: 24px;
+}
+
+.intro-hero {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.intro-hero-title {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 48px;
+  font-weight: 800;
+  color: #f9faf8;
+}
+
+.intro-hero-subtitle {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 18px;
+  color: #e5e7eb;
+}
+
+.intro-hero-button {
+  border-radius: 6px;
+  padding: 10px 32px;
+  border: none;
+  background-color: #3882f6;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.intro-image {
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 0;
+}
