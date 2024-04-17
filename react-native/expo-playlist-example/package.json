@@ -1,0 +1,31 @@
+{
+  "name": "expo-playlist-example",
+  "version": "1.0.0",
+  "description": "a playlist of some songs that Greg likes to demo the Expo AV API.",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^14.0.0",
+    "expo": "~50.0.14",
+    "expo-asset": "~9.0.2",
+    "expo-av": "~13.10.5",
+    "expo-font": "~11.10.3",
+    "expo-status-bar": "~1.11.1",
+    "react": "18.2.0",
+    "react-native": "0.73.6",
+    "@react-native-community/slider": "4.4.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@types/react": "~18.2.45",
+    "eslint": "^8.57.0",
+    "eslint-config-universe": "^12.0.1",
+    "prettier": "^3.2.5",
+    "typescript": "^5.1.3"
+  },
+  "private": true
+}
