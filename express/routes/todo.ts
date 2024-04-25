@@ -1,9 +1,9 @@
 import express from "express";
 
-type TodoItem = {
+interface TodoItem {
   text: string;
   isCompleted: boolean;
-};
+}
 
 const router = express.Router();
 const todoItems: TodoItem[] = [];

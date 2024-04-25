@@ -8,6 +8,7 @@ import users from "./routes/users.js";
 
 const app = express();
 
+// eslint-disable-next-line @typescript-eslint/no-misused-promises
 app.engine(".hbs", handlebarsEngine({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
 
