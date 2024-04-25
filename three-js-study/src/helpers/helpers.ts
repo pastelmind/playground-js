@@ -27,7 +27,7 @@ export const polarGridHelper = (scene: THREE.Scene) => {
     radius,
     radials,
     circles,
-    divisions
+    divisions,
   );
   polarGridHelper.name = polarGridHelperName;
   scene.add(polarGridHelper);

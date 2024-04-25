@@ -23,7 +23,7 @@ export const initScene = ({
       camera: THREE.PerspectiveCamera;
       renderer: THREE.WebGLRenderer;
       orbitControls: OrbitControls | undefined;
-    }) => void
+    }) => void,
   ) => {
     // basic scene setup
     const scene = new THREE.Scene();
@@ -40,10 +40,10 @@ export const initScene = ({
       75,
       window.innerWidth / window.innerHeight,
       0.1,
-      1000
+      1000,
     );
     const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.VSMShadowMap;
     if (backgroundColor !== undefined) {

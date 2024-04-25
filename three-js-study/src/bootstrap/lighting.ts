@@ -2,7 +2,7 @@ import * as THREE from "three";
 
 export const initLighting = (
   scene: THREE.Scene,
-  { disableShadows }: { disableShadows?: boolean }
+  { disableShadows }: { disableShadows?: boolean },
 ) => {
   // https://threejs.org/examples/?q=shado#webgl_shadowmap_vsm
   scene.add(new THREE.AmbientLight(0x666666));

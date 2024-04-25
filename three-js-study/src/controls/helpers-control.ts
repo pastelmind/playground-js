@@ -1,4 +1,5 @@
 import type GUI from "lil-gui";
+import type * as THREE from "three";
 import {
   axisHelper,
   axisHelperName,
@@ -42,7 +43,7 @@ export const initializeHelperControls = (gui: GUI, scene: THREE.Scene) => {
 const removeOrAddToScene = (
   name: string,
   scene: THREE.Scene,
-  addFn: (scene: THREE.Scene) => void
+  addFn: (scene: THREE.Scene) => void,
 ) => {
   const currentObject = scene.getObjectByName(name);
   console.log(currentObject);

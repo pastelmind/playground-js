@@ -2,7 +2,7 @@ import * as THREE from "three";
 
 export const visitChildren = (
   object: THREE.Object3D,
-  fn: (object: THREE.Object3D) => void
+  fn: (object: THREE.Object3D) => void,
 ) => {
   if (object.children && object.children.length > 0) {
     for (const child of object.children) {
@@ -31,7 +31,7 @@ export const applyShadowsAndDepthWrite = (object: THREE.Object3D) => {
 
 export const findChild = (
   object: THREE.Object3D,
-  name: string
+  name: string,
 ): THREE.Object3D | undefined => {
   if (object.children && object.children.length > 0) {
     for (const child of object.children) {

@@ -16,9 +16,9 @@ const enums = {
     PCFSoft: THREE.PCFSoftShadowMap,
     VSM: THREE.VSMShadowMap,
   },
-  outputEncodings: {
-    Linear: THREE.LinearEncoding,
-    sRGB: THREE.sRGBEncoding,
+  outputColorSpaces: {
+    Linear: THREE.LinearSRGBColorSpace,
+    sRGB: THREE.SRGBColorSpace,
   },
 };
 
@@ -28,7 +28,7 @@ const getPropertyHolder = (webGLRenderer: THREE.WebGLRenderer) => {
 
   const holder = {
     main: {
-      outputEncoding: webGLRenderer.outputEncoding,
+      outputColorSpace: webGLRenderer.outputColorSpace,
     },
     shadowMap: {
       enabled: webGLRenderer.shadowMap.enabled,
@@ -59,7 +59,7 @@ const getPropertyHolder = (webGLRenderer: THREE.WebGLRenderer) => {
 
 export const intializeRendererControls = (
   gui: GUI,
-  webGLRenderer: THREE.WebGLRenderer
+  webGLRenderer: THREE.WebGLRenderer,
 ) => {
   const propertiesObject = getPropertyHolder(webGLRenderer);
   const rendererFolder = gui.addFolder("WebGLRenderer");
@@ -70,8 +70,8 @@ export const intializeRendererControls = (
 
   rendererFolder.add(
     propertiesObject.main,
-    "outputEncoding",
-    enums.outputEncodings
+    "outputColorSpace",
+    enums.outputColorSpaces,
   );
 
   const shadowFolder = rendererFolder.addFolder("Shadow");
@@ -87,7 +87,7 @@ export const intializeRendererControls = (
   toneMappingFolder.add(
     propertiesObject.toneMapping,
     "toneMapping",
-    enums.toneMappingOptions
+    enums.toneMappingOptions,
   );
 
   const clearSettingsFolder = rendererFolder.addFolder("clearSettings");
@@ -99,7 +99,7 @@ export const intializeRendererControls = (
 
 const updateWebGLRendererProperties = (
   webGLRenderer: THREE.WebGLRenderer,
-  propertyHolder: ReturnType<typeof getPropertyHolder>
+  propertyHolder: ReturnType<typeof getPropertyHolder>,
 ) => {
   webGLRenderer.shadowMap.enabled = propertyHolder.shadowMap.enabled;
   webGLRenderer.shadowMap.autoUpdate = propertyHolder.shadowMap.autoUpdate;
@@ -108,7 +108,7 @@ const updateWebGLRendererProperties = (
   webGLRenderer.toneMappingExposure = propertyHolder.toneMapping.exposure;
   webGLRenderer.autoClear = propertyHolder.clearSettings.autoClear;
   webGLRenderer.setClearColor(propertyHolder.clearSettings.clearColor);
-  webGLRenderer.outputEncoding = propertyHolder.main.outputEncoding;
+  webGLRenderer.outputColorSpace = propertyHolder.main.outputColorSpace;
 
   // webGLRenderer.needsUpdate = true;
 };

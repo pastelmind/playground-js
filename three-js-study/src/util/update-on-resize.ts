@@ -2,7 +2,7 @@ import type * as THREE from "three";
 
 export const onResize = (
   camera: THREE.PerspectiveCamera,
-  renderer: THREE.Renderer
+  renderer: THREE.Renderer,
 ) => {
   const resizer = () => {
     camera.aspect = window.innerWidth / window.innerHeight;

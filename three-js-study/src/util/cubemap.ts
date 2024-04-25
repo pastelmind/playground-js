@@ -6,7 +6,7 @@ const exrLoader = new EXRLoader();
 
 export const premCubeMap = (
   renderer: THREE.WebGLRenderer,
-  onload: (texture: THREE.Texture) => void
+  onload: (texture: THREE.Texture) => void,
 ) => {
   const pmremGenerator = new THREE.PMREMGenerator(renderer);
   let pngCubeRenderTarget;
@@ -19,7 +19,7 @@ export const premCubeMap = (
 
 export const exrCubeMap = (
   renderer: THREE.WebGLRenderer,
-  onload: (texture: THREE.Texture) => void
+  onload: (texture: THREE.Texture) => void,
 ) => {
   const pmremGenerator = new THREE.PMREMGenerator(renderer);
   let pngCubeRenderTarget;
